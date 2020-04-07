@@ -10,10 +10,12 @@ function resizeToCenter(winScale)
     local screen = win:screen()
     local max = screen:frame()
 
+    local heightScale = -winScale*winScale + 2*winScale
+
     f.x = max.x + (max.w * (1 - winScale) / 2)
-    f.y = max.y + (max.h * (1 - winScale) / 2)
+    f.y = max.y + (max.h * (1 - heightScale) / 2)
     f.w = max.w * winScale
-    f.h = max.h * winScale
+    f.h = max.h * heightScale
     win:setFrame(f)
 end
 
