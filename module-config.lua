@@ -2,7 +2,7 @@ hyper = {'ctrl', 'command', 'option'}
 
 key2App = {
     ['0'] = {'/Applications/WeChat.app', 'Chinese', 0},
-    -- ['9'] = {'/Applications/QQ.app', 'Chinese', 0},
+    ['9'] = {'/Applications/QQ.app', 'Chinese', 0},
     ['8'] = {'/Applications/Telegram Desktop.app', 'Chinese', 0},
     ['7'] = {'/Applications/TeamSpeak 3 Client.app', 'Chinese', 0},
     p = {'/System/Library/CoreServices/Finder.app', 'English', 0},

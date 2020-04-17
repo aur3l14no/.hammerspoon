@@ -55,13 +55,14 @@ function toggleApplication(app)
         hs.application.launchOrFocus(appPath)
     else
         -- Application running, toggle hide/unhide
-        hs.rawprint(app)
         local mainwin = app:mainWindow()
         if mainwin then
             if app:isFrontmost() then
                 -- Show mouse circle if has focus on target application.
                 app:hide()
                 setInputMethod = false
+            elseif app:hide() then
+                hs.application.launchOrFocus(appPath) 
             else
                 -- Focus target application if it not at frontmost.
                 mainwin:application():activate(true)
