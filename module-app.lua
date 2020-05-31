@@ -23,7 +23,7 @@ function moveToScreen(win, n, showNotify)
         if showNotify then
             hs.alert.show("Move " .. win:application():name() .. " to " .. toScreen)
         end
-        -- hs.layout.apply({{nil, win:title(), toScreen, hs.layout.maximized, nil, nil}})
+        hs.layout.apply({{nil, win:title(), toScreen, hs.layout.maximized, nil, nil}})
     end
 end
 
