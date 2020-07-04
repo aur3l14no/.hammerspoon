@@ -12,19 +12,17 @@ function findApplication(appPath)
     return nil
 end
 
-function moveToScreen(win, n, showNotify)
-    local screens = hs.screen.allScreens()
-    if n > #screens then
-        if showNotify then
-            hs.alert.show("No enough screens " .. #screens)
-        end
-    else
-        local toScreen = hs.screen.allScreens()[n]:name()
-        if showNotify then
-            hs.alert.show("Move " .. win:application():name() .. " to " .. toScreen)
-        end
-        hs.layout.apply({{nil, win:title(), toScreen, hs.layout.maximized, nil, nil}})
+function moveToRelScreen(win, rel, showNotify)
+    local toScreen = win:screen()
+    if rel == 1 then
+        toScreen = toScreen:next()
+    elseif rel == -1 then
+        toScreen = toScreen:previous()
     end
+    if showNotify then
+        hs.alert.show("Move " .. win:application():name() .. " to " .. toScreen:name())
+    end
+    win:moveToScreen(toScreen)
 end
 
 
@@ -90,13 +88,14 @@ end
 hs.hotkey.bind(
     hyper, ",",
     function()
-        moveToScreen(hs.window.focusedWindow(), 1, true)
+        moveToRelScreen(hs.window.focusedWindow(), -1, true)
 end)
 
 hs.hotkey.bind(
     hyper, ".",
     function()
-        moveToScreen(hs.window.focusedWindow(), 2, true)
+        hs.window.focusedWindow():screen():previous()
+        moveToRelScreen(hs.window.focusedWindow(), 1, true)
 end)
 
 for key, app in pairs(key2App) do
