@@ -21,11 +21,11 @@ end
 
 -- Window operations.
 hs.hotkey.bind(hyper, 'U', function()
-    resizeToCenter(0.6)
+    resizeToCenter(0.5)
 end)
 
 hs.hotkey.bind(hyper, 'Y', function()
-    resizeToCenter(0.75)
+    resizeToCenter(0.7)
 end)
 
 hs.hotkey.bind(
