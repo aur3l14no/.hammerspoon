@@ -40,6 +40,11 @@ hs.hotkey.bind(
         hs.window.focusedWindow():moveToUnit(hs.geometry.unitrect(0.55,0,0.45,1))
 end)
 
+hs.hotkey.bind(
+    hyper, "/",
+    function()
+        hs.window.focusedWindow():moveToUnit(hs.geometry.unitrect(0.95,0.95,0.05,0.05))
+end)
 
 -- Binding key to start plugin.
 Install:andUse(

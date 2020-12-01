@@ -16,13 +16,13 @@ hs.window.animationDuration = 0
 -- Init speaker
 speaker = hs.speech.new()
 
-Install:andUse(
-    "WindowGrid",
-    {
-        config = {gridGeometries = {{"6x4"}}},
-        hotkeys = {show_grid = {hyper, "/"}},
-        start = true
-})
+-- Install:andUse(
+--     "WindowGrid",
+--     {
+--         config = {gridGeometries = {{"6x4"}}},
+--         hotkeys = {show_grid = {hyper, "/"}},
+--         start = true
+-- })
 
 
 
