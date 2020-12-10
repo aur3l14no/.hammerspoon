@@ -76,7 +76,6 @@ function toggleApplication(app)
     end
 
     if setInputMethod then
-        myprint(inputMethod)
         if inputMethod == 'English' then
             English()
         else
@@ -85,21 +84,7 @@ function toggleApplication(app)
     end
 end
 
-hs.hotkey.bind(
-    hyper, ",",
-    function()
-        moveToRelScreen(hs.window.focusedWindow(), -1, true)
-end)
-
-hs.hotkey.bind(
-    hyper, ".",
-    function()
-        hs.window.focusedWindow():screen():previous()
-        moveToRelScreen(hs.window.focusedWindow(), 1, true)
-end)
-
 for key, app in pairs(key2App) do
-    hs.console.printStyledtext("?")
     hs.hotkey.bind(
         hyper, key,
         function()

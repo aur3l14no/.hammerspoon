@@ -16,3 +16,5 @@ key2App = {
     m = {'/Applications/iThoughtsX.app', 'Chinese', 0},
     n = {'/Applications/Notion.app', 'English', 0},
 }
+
+ddcctl_path = '~/bin/ddcctl'

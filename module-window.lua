@@ -1,8 +1,4 @@
 require('module-config')
-hs.loadSpoon("WindowHalfsAndThirds")
-hs.loadSpoon("SpoonInstall")
-
-Install=spoon.SpoonInstall
 
 function resizeToCenter(winScale)
     local win = hs.window.focusedWindow()
@@ -31,25 +27,51 @@ end)
 hs.hotkey.bind(
     hyper, "H",
     function()
-        hs.window.focusedWindow():moveToUnit(hs.geometry.unitrect(0,0,0.55,1))
+        hs.window.focusedWindow():moveToUnit(hs.geometry.unitrect(0, 0, 0.55, 1))
 end)
 
 hs.hotkey.bind(
     hyper, "L",
     function()
-        hs.window.focusedWindow():moveToUnit(hs.geometry.unitrect(0.55,0,0.45,1))
+        hs.window.focusedWindow():moveToUnit(hs.geometry.unitrect(0.55, 0, 0.45, 1))
 end)
 
 hs.hotkey.bind(
     hyper, "/",
     function()
-        hs.window.focusedWindow():moveToUnit(hs.geometry.unitrect(0.95,0.95,0.05,0.05))
+        hs.window.focusedWindow():moveToUnit(hs.geometry.unitrect(0.95, 0.95, 0.05, 0.05))
 end)
 
--- Binding key to start plugin.
-Install:andUse(
-    "WindowHalfsAndThirds",
-    {
-        config = { use_frame_correctness = true },
-        hotkeys = { max_toggle = {hyper, "return"} }
-})
+hs.hotkey.bind(
+    hyper, "return",
+    function()
+        hs.window.focusedWindow():moveToUnit(hs.geometry.unitrect(0, 0, 1, 1))
+end)
+
+hs.hotkey.bind(
+    hyper, ",",
+    function()
+        moveToRelScreen(hs.window.focusedWindow(), -1, true)
+end)
+
+hs.hotkey.bind(
+    hyper, ".",
+    function()
+        hs.window.focusedWindow():screen():previous()
+        moveToRelScreen(hs.window.focusedWindow(), 1, true)
+end)
+
+
+hs.hotkey.bind(
+    hyper, "-",
+    function()
+        os.execute(ddcctl_path .. ' -d 1 -i 17')
+end)
+
+
+hs.hotkey.bind(
+    hyper, "=",
+    function()
+        os.execute(ddcctl_path .. ' -d 1 -i 15')
+end)
+
