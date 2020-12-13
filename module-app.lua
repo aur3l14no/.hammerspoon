@@ -1,5 +1,5 @@
-require('module-config')
-require('module-util')
+require("module-config")
+require("module-util")
 
 function findApplication(appPath)
     local apps = hs.application.runningApplications()
@@ -11,20 +11,6 @@ function findApplication(appPath)
     end
     return nil
 end
-
-function moveToRelScreen(win, rel, showNotify)
-    local toScreen = win:screen()
-    if rel == 1 then
-        toScreen = toScreen:next()
-    elseif rel == -1 then
-        toScreen = toScreen:previous()
-    end
-    if showNotify then
-        hs.alert.show("Move " .. win:application():name() .. " to " .. toScreen:name())
-    end
-    win:moveToScreen(toScreen)
-end
-
 
 -- Handle cursor focus and application's screen manage.
 startAppPath = ""
@@ -60,7 +46,7 @@ function toggleApplication(app)
                 app:hide()
                 setInputMethod = false
             elseif app:hide() then
-                hs.application.launchOrFocus(appPath) 
+                hs.application.launchOrFocus(appPath)
             else
                 -- Focus target application if it not at frontmost.
                 mainwin:application():activate(true)
@@ -70,13 +56,13 @@ function toggleApplication(app)
         else
             -- Start application if application is hide.
             if app:hide() then
-                hs.application.launchOrFocus(appPath) 
+                hs.application.launchOrFocus(appPath)
             end
         end
     end
 
     if setInputMethod then
-        if inputMethod == 'English' then
+        if inputMethod == "English" then
             English()
         else
             Chinese()
@@ -86,8 +72,10 @@ end
 
 for key, app in pairs(key2App) do
     hs.hotkey.bind(
-        hyper, key,
+        hyper,
+        key,
         function()
             toggleApplication(app)
-    end)
+        end
+    )
 end
