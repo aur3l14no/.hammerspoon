@@ -1,0 +1,10 @@
+* Hammerspoon Config
+
+** Prerequesite
+
+- Put [[https://github.com/kfix/ddcctl][ddcctl]] is in `$PATH` to support monitor input source switch mechanism
+
+** Usage
+
+1. Modify ~module-config.lua~
+2. Modify ~module-window.lua~ (shortcut, display_id, input_source_id (see =ddcctl= readme))

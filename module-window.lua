@@ -89,31 +89,36 @@ hs.hotkey.bind(
 end)
 
 
--- Change the below according to your situation
+-- Change the below according to your situation --
+
+super = {'ctrl', 'command', 'option', 'shift'}
+
+-- Switch external monitor to PC
 hs.hotkey.bind(
-    hyper, "F11",
+    hyper, "-",
     function()
-        os.execute(ddcctl_path .. ' -d 1 -i 17')  -- Laptop
+        os.execute(ddcctl_path .. ' -d 1 -i 15')  -- DP (PC)
 end)
 
-
+-- Move windows to laptop screen and switch external monitor to PC
 hs.hotkey.bind(
-    hyper, "F12",
+    super, "-",
     function()
-        os.execute(ddcctl_path .. ' -d 1 -i 15')  -- PC
+        moveAllWindowsTo(2, true)  -- move windows to laptop screen
+        os.execute(ddcctl_path .. ' -d 1 -i 15')  -- switch external monitor to PC
 end)
 
-
+-- Switch external monitor to laptop
 hs.hotkey.bind(
-    hyper, "F9",
+    hyper, "=",
     function()
-        moveAllWindowsTo(2, true)  -- Laptop screen
+        os.execute(ddcctl_path .. ' -d 1 -i 17')  -- HDMI (Laptop)
 end)
 
-
+-- Move windows to external monitor and switch external monitor to Laptop (HDMI)
 hs.hotkey.bind(
-    hyper, "F10",
+    super, "=",
     function()
-        moveAllWindowsTo(1, true) -- External monitor
+        moveAllWindowsTo(1, true) -- move windows to external monitor
+        os.execute(ddcctl_path .. ' -d 1 -i 17')  -- HDMI (Laptop)
 end)
-
