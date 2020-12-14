@@ -104,7 +104,8 @@ end)
 hs.hotkey.bind(
     super, "-",
     function()
-        moveAllWindowsTo(2, true)  -- move windows to laptop screen
+        -- moveAllWindowsTo(2, true)  -- move windows to laptop screen
+        os.execute(displayplacer_path .. ' "id:B89A6485-DE30-8A16-E384-E6EF923F03B4 res:1440x900 color_depth:4 scaling:on origin:(0,0) degree:0" "id:7A055398-1B2E-56CA-9775-0D75FCD479CC res:1920x1080 hz:60 color_depth:8 scaling:on origin:(1440,0) degree:0"')
         os.execute(ddcctl_path .. ' -d 1 -i 15')  -- switch external monitor to PC
 end)
 
@@ -119,6 +120,7 @@ end)
 hs.hotkey.bind(
     super, "=",
     function()
-        moveAllWindowsTo(1, true) -- move windows to external monitor
+        -- moveAllWindowsTo(1, true) -- move windows to external monitor
+        os.execute(displayplacer_path .. ' "id:7A055398-1B2E-56CA-9775-0D75FCD479CC res:1920x1080 hz:60 color_depth:8 scaling:on origin:(0,0) degree:0" "id:B89A6485-DE30-8A16-E384-E6EF923F03B4 res:1440x900 color_depth:4 scaling:on origin:(-1440,68) degree:0"')
         os.execute(ddcctl_path .. ' -d 1 -i 17')  -- HDMI (Laptop)
 end)

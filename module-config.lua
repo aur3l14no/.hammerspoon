@@ -18,3 +18,4 @@ key2App = {
 }
 
 ddcctl_path = '~/bin/ddcctl'
+displayplacer_path = '/usr/local/bin/displayplacer'

@@ -2,9 +2,10 @@
 
 ** Prerequesite
 
-- Put [[https://github.com/kfix/ddcctl][ddcctl]] is in `$PATH` to support monitor input source switch mechanism
+- [[https://github.com/kfix/ddcctl][ddcctl]]: switch monitor input source
+- [[https://github.com/jakehilborn/displayplacer][displayplacer]]: switch main display
 
 ** Usage
 
-1. Modify ~module-config.lua~
-2. Modify ~module-window.lua~ (shortcut, display_id, input_source_id (see =ddcctl= readme))
+1. Modify ~module-config.lua~ (ddcctl_path, displayplacer_path, etc.)
+2. Modify ~module-window.lua~ (shortcut, display_id, input_source_id, display_arrangement (see =ddcctl=, =displayplacer= readme))
