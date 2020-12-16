@@ -10,8 +10,12 @@ require('module-config')
 -- Inits
 hs.window.animationDuration = 0
 
+-- Auto reload
+hs.loadSpoon("ReloadConfiguration")
+spoon.ReloadConfiguration:start()
+
 -- Init speaker
-speaker = hs.speech.new()
+-- speaker = hs.speech.new()
 
 hs.console.clearConsole()
 

@@ -1,19 +1,6 @@
 require('module-config')
-
-function resizeToCenter(winScale)
-    local win = hs.window.focusedWindow()
-    local f = win:frame()
-    local screen = win:screen()
-    local max = screen:frame()
-
-    local heightScale = -winScale*winScale + 2*winScale
-
-    f.x = max.x + (max.w * (1 - winScale) / 2)
-    f.y = max.y + (max.h * (1 - heightScale) / 2)
-    f.w = max.w * winScale
-    f.h = max.h * heightScale
-    win:setFrame(f)
-end
+require('module-util')
+require('module-layout')
 
 function moveToRelScreen(win, rel, showNotify)
     local toScreen = win:screen()
@@ -28,51 +15,53 @@ function moveToRelScreen(win, rel, showNotify)
     win:moveToScreen(toScreen)
 end
 
-
-local tempScreen = nil
-
-function moveAllWindowsTo(dest, showNotify)
+function moveAllWindowsTo(screenName, showNotify)
     local wins = hs.window.allWindows()
-    local screens = hs.screen.allScreens()
-    assert(dest <= #screens and dest > 0, "Invalid destination screen")
+    local screen = hs.screen.findByName(screenName)
 
-    for i = 1, #wins do
-        local win = wins[i]
-        win:moveToScreen(screens[dest])
+    if screen then
+        for i = 1, #wins do
+            local win = wins[i]
+            win:moveToScreen(screen)
+        end
     end
 end
 
 -- Window operations.
-hs.hotkey.bind(hyper, 'U', function()
-    resizeToCenter(0.5)
+hs.hotkey.bind(
+    hyper, 'U',
+    function()
+        hs.window.focusedWindow():moveToUnit(presetLayout['mid-small'])
 end)
 
-hs.hotkey.bind(hyper, 'Y', function()
-    resizeToCenter(0.7)
+hs.hotkey.bind(
+    hyper, 'Y',
+    function()
+        hs.window.focusedWindow():moveToUnit(presetLayout['mid-large'])
 end)
 
 hs.hotkey.bind(
     hyper, "H",
     function()
-        hs.window.focusedWindow():moveToUnit(hs.geometry.unitrect(0, 0, 0.55, 1))
+        hs.window.focusedWindow():moveToUnit(presetLayout['left'])
 end)
 
 hs.hotkey.bind(
     hyper, "L",
     function()
-        hs.window.focusedWindow():moveToUnit(hs.geometry.unitrect(0.55, 0, 0.45, 1))
+        hs.window.focusedWindow():moveToUnit(presetLayout['right'])
 end)
 
 hs.hotkey.bind(
     hyper, "/",
     function()
-        hs.window.focusedWindow():moveToUnit(hs.geometry.unitrect(0.95, 0.95, 0.05, 0.05))
+        hs.window.focusedWindow():moveToUnit(presetLayout['corner'])
 end)
 
 hs.hotkey.bind(
     hyper, "return",
     function()
-        hs.window.focusedWindow():moveToUnit(hs.geometry.unitrect(0, 0, 1, 1))
+        hs.window.focusedWindow():moveToUnit(presetLayout['fullscreen'])
 end)
 
 hs.hotkey.bind(
@@ -105,8 +94,8 @@ hs.hotkey.bind(
     super, "-",
     function()
         os.execute(ddcctl_path .. ' -d 1 -i 15')  -- switch external monitor to PC
-        moveAllWindowsTo(1, true)  -- move windows to main screen
         os.execute(displayplacer_path .. ' "id:B89A6485-DE30-8A16-E384-E6EF923F03B4 res:1440x900 color_depth:4 scaling:on origin:(0,0) degree:0" "id:7A055398-1B2E-56CA-9775-0D75FCD479CC res:1920x1080 hz:60 color_depth:8 scaling:on origin:(1440,0) degree:0"')
+        moveAllWindowsTo("Color LCD", true)  -- make sure all windows are here
 end)
 
 -- Switch external monitor to laptop
@@ -121,6 +110,6 @@ hs.hotkey.bind(
     super, "=",
     function()
         os.execute(ddcctl_path .. ' -d 1 -i 17')  -- HDMI (Laptop)
-        moveAllWindowsTo(1, true)  -- move windows to main screen
         os.execute(displayplacer_path .. ' "id:7A055398-1B2E-56CA-9775-0D75FCD479CC res:1920x1080 hz:60 color_depth:8 scaling:on origin:(0,0) degree:0" "id:B89A6485-DE30-8A16-E384-E6EF923F03B4 res:1440x900 color_depth:4 scaling:on origin:(-1440,68) degree:0"')
+        moveAllWindowsTo("U2790B", true)  -- make sure all windows are here
 end)

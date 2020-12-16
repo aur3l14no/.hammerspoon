@@ -9,3 +9,24 @@
 
 1. Modify ~module-config.lua~ (ddcctl_path, displayplacer_path, etc.)
 2. Modify ~module-window.lua~ (shortcut, display_id, input_source_id, display_arrangement (see =ddcctl=, =displayplacer= readme))
+3. Modify ~module-layout.lua~
+
+** Cheatsheet
+
+hyper = command + option + ctrl
+super = command + option + ctrl + shift
+
+| Shortcut               | Function                                                    |
+|------------------------+-------------------------------------------------------------|
+| hyper + h              | move current window to the left                             |
+| hyper + l              | move current window to the right                            |
+| hyper + u              | move current window to the center (small)                   |
+| hyper + y              | move current window to the center (large)                   |
+| hyper + \              | apply default app layout (see ~module-layout.lua~)          |
+|------------------------+-------------------------------------------------------------|
+| hyper + -              | change monitor input to DP                                  |
+| hyper + =              | change monitor input to HDMI 1                              |
+| super + -              | change monitor input to DP and throw windows to laptop      |
+| super + =              | change monitor input to HDMI 1 and throw windows to monitor |
+|------------------------+-------------------------------------------------------------|
+| hyper + [ijkopbnm7890] | launch app (see ~module-config.lua~)                        |
