@@ -28,40 +28,59 @@ function moveAllWindowsTo(screenName, showNotify)
 end
 
 -- Window operations.
+
+local lastMovedWin = nil
+local lastLayout = nil
+local moveWindowState = {
+    ['left'] = {'', '-top', '-bottom'},
+    ['right'] = {'', '-top', '-bottom'},
+    ['center'] = {'', '-large'}
+}
+local moveWindowCounter = 1
+
+-- by pressing hyper + x multiple times, different layout will be applied
+function moveWindow(win, layoutStr)
+    if win == lastMovedWin and layoutStr == lastLayout and
+            string.match('left|right|center', layoutStr) then
+        moveWindowCounter = moveWindowCounter % #moveWindowState[layoutStr] + 1
+        win:moveToUnit(presetLayout[layoutStr .. moveWindowState[layoutStr][moveWindowCounter]])
+    else
+        lastMovedWin = win
+        lastLayout = layoutStr
+        moveWindowCounter = 1
+        win:moveToUnit(presetLayout[layoutStr])
+    end
+end
+
+
 hs.hotkey.bind(
     hyper, 'U',
     function()
-        hs.window.focusedWindow():moveToUnit(presetLayout['mid-small'])
-end)
-
-hs.hotkey.bind(
-    hyper, 'Y',
-    function()
-        hs.window.focusedWindow():moveToUnit(presetLayout['mid-large'])
+        moveWindow(hs.window.focusedWindow(), 'center')
 end)
 
 hs.hotkey.bind(
     hyper, "H",
     function()
-        hs.window.focusedWindow():moveToUnit(presetLayout['left'])
+        moveWindow(hs.window.focusedWindow(), 'left')
 end)
 
 hs.hotkey.bind(
     hyper, "L",
     function()
-        hs.window.focusedWindow():moveToUnit(presetLayout['right'])
+        moveWindow(hs.window.focusedWindow(), 'right')
 end)
 
 hs.hotkey.bind(
     hyper, "/",
     function()
-        hs.window.focusedWindow():moveToUnit(presetLayout['corner'])
+        moveWindow(hs.window.focusedWindow(), 'corner')
 end)
 
 hs.hotkey.bind(
     hyper, "return",
     function()
-        hs.window.focusedWindow():moveToUnit(presetLayout['fullscreen'])
+        moveWindow(hs.window.focusedWindow(), 'fullscreen')
 end)
 
 hs.hotkey.bind(
@@ -95,7 +114,7 @@ hs.hotkey.bind(
     function()
         os.execute(ddcctl_path .. ' -d 1 -i 15')  -- switch external monitor to PC
         os.execute(displayplacer_path .. ' "id:B89A6485-DE30-8A16-E384-E6EF923F03B4 res:1440x900 color_depth:4 scaling:on origin:(0,0) degree:0" "id:7A055398-1B2E-56CA-9775-0D75FCD479CC res:1920x1080 hz:60 color_depth:8 scaling:on origin:(1440,0) degree:0"')
-        moveAllWindowsTo("Color LCD", true)  -- make sure all windows are here
+        -- moveAllWindowsTo("Color LCD", true)  -- make sure all windows are here
 end)
 
 -- Switch external monitor to laptop
@@ -111,5 +130,5 @@ hs.hotkey.bind(
     function()
         os.execute(ddcctl_path .. ' -d 1 -i 17')  -- HDMI (Laptop)
         os.execute(displayplacer_path .. ' "id:7A055398-1B2E-56CA-9775-0D75FCD479CC res:1920x1080 hz:60 color_depth:8 scaling:on origin:(0,0) degree:0" "id:B89A6485-DE30-8A16-E384-E6EF923F03B4 res:1440x900 color_depth:4 scaling:on origin:(-1440,68) degree:0"')
-        moveAllWindowsTo("U2790B", true)  -- make sure all windows are here
+        -- moveAllWindowsTo("U2790B", true)  -- make sure all windows are here
 end)
