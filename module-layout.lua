@@ -14,16 +14,17 @@ presetLayout = {
 }
 
 appLayout = {
-  {'WeChat',        nil, nil, presetLayout['right-top'],    nil, nil, nil},
-  {'QQ',            nil, nil, presetLayout['center'],       nil, nil, nil},
-  {'Telegram',      nil, nil, presetLayout['center'],       nil, nil, nil},
-  {'NeteaseMusic',  nil, nil, presetLayout['left-top'],     nil, nil, nil},
-  {'Emacs',         nil, nil, presetLayout['right'],        nil, nil, nil},
-  {'Finder',        nil, nil, presetLayout['left-bottom'],  nil, nil, nil},
-  {'iTerm2',        nil, nil, presetLayout['right-bottom'], nil, nil, nil},
-  {'PDF Expert',    nil, nil, presetLayout['left'],         nil, nil, nil},
-  {'Google Chrome', nil, nil, presetLayout['fullscreen'],   nil, nil, nil},
-  {'Code',          nil, nil, presetLayout['fullscreen'],   nil, nil, nil}
+  {'WeChat',          nil, nil, presetLayout['right-top'],    nil, nil, nil},
+  {'QQ',              nil, nil, presetLayout['center'],       nil, nil, nil},
+  {'Telegram',        nil, nil, presetLayout['center'],       nil, nil, nil},
+  {'Microsoft Teams', nil, nil, presetLayout['center-large'], nil, nil, nil},
+  {'NeteaseMusic',    nil, nil, presetLayout['left-top'],     nil, nil, nil},
+  {'Emacs',           nil, nil, presetLayout['right'],        nil, nil, nil},
+  {'Finder',          nil, nil, presetLayout['left-bottom'],  nil, nil, nil},
+  {'iTerm2',          nil, nil, presetLayout['right-bottom'], nil, nil, nil},
+  {'PDF Expert',      nil, nil, presetLayout['left'],         nil, nil, nil},
+  {'Google Chrome',   nil, nil, presetLayout['fullscreen'],   nil, nil, nil},
+  {'Code',            nil, nil, presetLayout['fullscreen'],   nil, nil, nil}
 }
 
 hs.hotkey.bind(
