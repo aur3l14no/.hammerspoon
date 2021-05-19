@@ -36,20 +36,14 @@ local caffeinateTrayIcon = hs.menubar.new()
 
 local function caffeinateSetIcon(state)
     caffeinateTrayIcon:setIcon(state and caffeinateOnIcon or caffeinateOffIcon)
-
-    if state then
-        caffeinateTrayIcon:setTooltip("Sleep never sleep")
-    else
-        caffeinateTrayIcon:setTooltip("System will sleep when idle")
-    end
 end
 
 local function toggleCaffeinate()
     local sleepStatus = hs.caffeinate.toggle("displayIdle")
     if sleepStatus then
-        hs.notify.new({title="HammerSpoon", informativeText="System never sleep"}):send()
+        myAlert("System never sleep")
     else
-        hs.notify.new({title="HammerSpoon", informativeText="System will sleep when idle"}):send()
+        myAlert("System will sleep when idle")
     end
 
     caffeinateSetIcon(sleepStatus)
