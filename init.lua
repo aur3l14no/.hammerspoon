@@ -4,8 +4,9 @@ Install=spoon.SpoonInstall
 
 require('module-caffeinate')
 require('module-app')
-require('module-window')
 require('module-config')
+require('module-window')
+require('module-screen')
 
 -- Inits
 hs.window.animationDuration = 0
