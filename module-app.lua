@@ -1,38 +1,30 @@
 require("module-config")
 require("module-util")
 
-function findApplication(appPath)
-    local apps = hs.application.runningApplications()
-    for i = 1, #apps do
-        local app = apps[i]
-        if app:path() == appPath then
-            return app
+function toggleApplication(appBundleID)
+    local app = hs.application.get(appBundleID)
+
+    if app == nil then
+        hs.application.launchOrFocusByBundleID(appBundleID)
+        return
+    else
+        -- local bundleID = app:bundleID()
+        if app:isFrontmost() then
+            app:hide()
+        else
+            -- TODO: maybe focus all windows?
+            app:mainWindow():focus()
         end
     end
-    return nil
 end
 
-function toggleApplication(app)
-    local appPath = app[1]
-
-    startAppPath = appPath
-
-    local app = findApplication(appPath)
-
-    if app and app:isFrontmost() then
-        -- App is focused -> Hide it
-        app:hide()
-    else
-        hs.application.launchOrFocus(appPath)
-    end
-end
-
-for key, app in pairs(key2App) do
+for _, item in ipairs(key2App) do
+    local key, appBundleID = table.unpack(item)
     hs.hotkey.bind(
         hyper,
         key,
         function()
-            toggleApplication(app)
+            toggleApplication(appBundleID)
         end
     )
 end

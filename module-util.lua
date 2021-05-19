@@ -2,7 +2,12 @@ function myprint(x)
     hs.console.printStyledtext(x)
 end
 
-function randomDisturb(base)
+function myAlert(msg)
+    alert = hs.notify.new({title="Hammerspoon", informativeText=msg})
+    alert:withdrawAfter(3):send()
+end
+
+function randomlyDisturb(base)
     local coef = 0.01
     base.w = base.w + (math.random() * 2 - 1) * coef
     base.h = base.h + (math.random() * 2 - 1) * coef
@@ -13,6 +18,21 @@ function randomDisturb(base)
     if base.y < 0 then base.y = 0 end
     if base.y + base.h > 1 then base.y = 1 - base.h end
     return base
+end
+
+function map(f, t)
+    local o = {}
+    for i = 1, #t do
+        o[#o + 1] = f(t[i])
+    end
+    return o
+end
+
+function sleep(n)
+    local t = os.clock()
+    while os.clock() - t <= n do
+        -- nothing
+    end
 end
 
 -- https://stackoverflow.com/questions/9168058/how-to-dump-a-table-to-console/42062321#42062321

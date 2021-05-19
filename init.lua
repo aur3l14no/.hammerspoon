@@ -20,4 +20,4 @@ spoon.ReloadConfiguration:start()
 
 hs.console.clearConsole()
 
-hs.notify.new({title="Hammer", informativeText="Sir, I'm online!"}):send()
+myAlert("Sir, I'm online!")

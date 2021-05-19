@@ -1,15 +1,15 @@
 hyper = {'ctrl', 'command', 'option'}
+super = {'ctrl', 'command', 'option', 'shift'}
 
 key2App = {
-  ['0'] = {'/Applications/WeChat.app'},
-  ['9'] = {'/Applications/Microsoft Teams.app'},
-  ['7'] = {'/Applications/NeteaseMusic.app'},
-  -- o = {'/Applications/Emacs.app'},
-  o = {'/usr/local/Cellar/emacs-plus@28/28.0.50/Emacs.app'},
-  p = {'/System/Library/CoreServices/Finder.app'},
-  i = {'/Applications/iTerm.app'},
-  k = {'/Applications/Google Chrome.app'},
-  b = {'/Applications/Visual Studio Code.app'},
+  {'0', 'com.tencent.xinWeChat'},
+  {'9', 'com.microsoft.teams'},
+  {'7', 'com.netease.163music'},
+  {'o', 'org.gnu.Emacs'},
+  {'p', 'com.apple.finder'},
+  {'i', 'com.googlecode.iterm2'},
+  {'k', 'com.google.chrome'},
+  {'b', 'com.microsoft.VSCode'},
 }
 
 ddcctl_path = '~/bin/ddcctl'
