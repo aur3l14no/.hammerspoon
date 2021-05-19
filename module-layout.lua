@@ -21,7 +21,7 @@ appLayout = {
   {'NeteaseMusic',    nil, nil, presetLayout['left-top'],     nil, nil, nil},
   {'Emacs',           nil, nil, presetLayout['right'],        nil, nil, nil},
   {'Finder',          nil, nil, presetLayout['left-bottom'],  nil, nil, nil},
-  {'iTerm2',          nil, nil, presetLayout['right-bottom'], nil, nil, nil},
+  {'iTerm2',          nil, nil, presetLayout['center'],       nil, nil, nil},
   {'PDF Expert',      nil, nil, presetLayout['left'],         nil, nil, nil},
   {'Google Chrome',   nil, nil, presetLayout['fullscreen'],   nil, nil, nil},
   {'Code',            nil, nil, presetLayout['fullscreen'],   nil, nil, nil}
