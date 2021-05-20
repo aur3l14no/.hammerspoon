@@ -1,5 +1,13 @@
-function myprint(x)
+function myPrint(x)
     hs.console.printStyledtext(x)
+end
+
+function changeSourceID(sourceID)
+    if sourceID == nil then
+        hs.keycodes.currentSourceID(defaultSourceID)
+    else
+        hs.keycodes.currentSourceID(sourceID)
+    end
 end
 
 function myAlert(msg)
