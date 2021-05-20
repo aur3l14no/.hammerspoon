@@ -8,7 +8,7 @@ key2App = {
   {'o', 'org.gnu.Emacs'},
   {'p', 'com.apple.finder'},
   {'i', 'com.googlecode.iterm2'},
-  {'k', 'com.google.chrome'},
+  {'k', 'com.google.Chrome'},
   {'b', 'com.microsoft.VSCode'},
 }
 
