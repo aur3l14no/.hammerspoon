@@ -9,10 +9,22 @@ function moveToRelScreen(win, rel, showNotify)
     elseif rel == -1 then
         toScreen = toScreen:previous()
     end
+
+    if win:isFullscreen() then
+        win:setFullScreen(false)
+        hs.timer.doAfter(1, function()
+            win:moveToScreen(toScreen)
+        end)
+        hs.timer.doAfter(1, function()
+            win:setFullScreen(true)
+        end)
+    else
+        win:moveToScreen(toScreen)
+    end
+
     if showNotify then
         hs.alert.show("Move " .. win:application():name() .. " to " .. toScreen:name())
     end
-    win:moveToScreen(toScreen)
 end
 
 function moveAllWindowsTo(screenName, showNotify)
