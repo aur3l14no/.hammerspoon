@@ -12,5 +12,3 @@ key2App = {
   {'b', 'com.microsoft.VSCode'},
 }
 
-ddcctl_path = '~/bin/ddcctl'
-displayplacer_path = '/usr/local/bin/displayplacer'

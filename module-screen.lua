@@ -3,36 +3,116 @@ require('module-util')
 
 -- Change the below according to your situation --
 
-super = {'ctrl', 'command', 'option', 'shift'}
+ddcctl_path = '~/bin/ddcctl'
 
--- Switch external monitor to PC
+-- Core functions
+
+function moveToRelScreen(win, rel, showNotify)
+  local toScreen = win:screen()
+  if rel == 1 then
+    toScreen = toScreen:next()
+  elseif rel == -1 then
+    toScreen = toScreen:previous()
+  end
+
+  if win:isFullscreen() then
+    win:setFullScreen(false)
+    hs.timer.doAfter(1, function()
+                       win:moveToScreen(toScreen)
+    end)
+    hs.timer.doAfter(1, function()
+                       win:setFullScreen(true)
+    end)
+  else
+    win:moveToScreen(toScreen)
+  end
+
+  if showNotify then
+    hs.alert.show("Move " .. win:application():name() .. " to " .. toScreen:name())
+  end
+end
+
+function moveAllWindowsTo(screenName, showNotify)
+  local wins = hs.window.allWindows()
+  local screen = hs.screen.findByName(screenName)
+
+  if screen then
+    for i = 1, #wins do
+      local win = wins[i]
+      win:moveToScreen(screen)
+    end
+  end
+end
+
+function focusScreen(rel)
+  local focusedWin = hs.window.focusedWindow()
+  local screen = focusedWin:screen()
+  if rel == 1 then
+    screen = screen:next()
+  elseif rel == -1 then
+    screen = screen:previous()
+  end
+  for _, win in ipairs(hs.window.orderedWindows()) do
+    if win:screen() == screen then
+      win:focus()
+      break
+    end
+  end
+end
+
+-- Keybindings
+
 hs.hotkey.bind(
-    hyper, "-",
-    function()
-        os.execute(ddcctl_path .. ' -d 1 -i 15')  -- DP (PC)
+  hyper, "tab",
+  function()
+    focusScreen(1)
 end)
 
--- Move windows to laptop screen and switch external monitor to PC
 hs.hotkey.bind(
-    super, "-",
-    function()
-        os.execute(ddcctl_path .. ' -d 1 -i 15')  -- switch external monitor to PC
-        os.execute(displayplacer_path .. ' "id:B89A6485-DE30-8A16-E384-E6EF923F03B4 res:1440x900 color_depth:4 scaling:on origin:(0,0) degree:0" "id:7A055398-1B2E-56CA-9775-0D75FCD479CC res:1920x1080 hz:60 color_depth:8 scaling:on origin:(1440,0) degree:0"')
-        -- moveAllWindowsTo("Color LCD", true)  -- make sure all windows are here
+  super, "tab",
+  function()
+    focusScreen(-1)
 end)
 
--- Switch external monitor to laptop
 hs.hotkey.bind(
-    hyper, "=",
-    function()
-        os.execute(ddcctl_path .. ' -d 1 -i 17')  -- HDMI (Laptop)
+  hyper, ",",
+  function()
+    moveToRelScreen(hs.window.focusedWindow(), -1, true)
 end)
 
--- Move windows to external monitor and switch external monitor to Laptop (HDMI)
 hs.hotkey.bind(
-    super, "=",
-    function()
-        os.execute(ddcctl_path .. ' -d 1 -i 17')  -- HDMI (Laptop)
-        os.execute(displayplacer_path .. ' "id:7A055398-1B2E-56CA-9775-0D75FCD479CC res:1920x1080 hz:60 color_depth:8 scaling:on origin:(0,0) degree:0" "id:B89A6485-DE30-8A16-E384-E6EF923F03B4 res:1440x900 color_depth:4 scaling:on origin:(-1440,68) degree:0"')
-        -- moveAllWindowsTo("U2790B", true)  -- make sure all windows are here
+  hyper, ".",
+  function()
+    moveToRelScreen(hs.window.focusedWindow(), 1, true)
 end)
+
+
+-- -- Switch external monitor to PC
+-- hs.hotkey.bind(
+--     hyper, "-",
+--     function()
+--         os.execute(ddcctl_path .. ' -d 1 -i 15')  -- DP (PC)
+-- end)
+--
+-- -- Switch external monitor to laptop
+-- hs.hotkey.bind(
+--     hyper, "=",
+--     function()
+--         os.execute(ddcctl_path .. ' -d 1 -i 17')  -- HDMI (Laptop)
+-- end)
+--
+-- -- Move windows to laptop screen and switch external monitor to PC
+-- hs.hotkey.bind(
+--     super, "-",
+--     function()
+--         os.execute(ddcctl_path .. ' -d 1 -i 15')  -- switch external monitor to PC
+--         -- moveAllWindowsTo("Color LCD", true)  -- make sure all windows are here
+-- end)
+--
+-- -- Move windows to external monitor and switch external monitor to Laptop (HDMI)
+-- hs.hotkey.bind(
+--     super, "=",
+--     function()
+--         os.execute(ddcctl_path .. ' -d 1 -i 17')  -- HDMI (Laptop)
+--         -- moveAllWindowsTo("U2790B", true)  -- make sure all windows are here
+-- end)

@@ -16,7 +16,7 @@ e.2......6.3..........t..q....
 .....5c.......................
 ]]
 
-    caffeinateOffIcon = [[ASCII:
+caffeinateOffIcon = [[ASCII:
 .....1a.....x....AC.y.......zE
 ..............................
 ......4.......................
@@ -35,18 +35,18 @@ e.2......6.3..........t..q....
 local caffeinateTrayIcon = hs.menubar.new()
 
 local function caffeinateSetIcon(state)
-    caffeinateTrayIcon:setIcon(state and caffeinateOnIcon or caffeinateOffIcon)
+  caffeinateTrayIcon:setIcon(state and caffeinateOnIcon or caffeinateOffIcon)
 end
 
 local function toggleCaffeinate()
-    local sleepStatus = hs.caffeinate.toggle("displayIdle")
-    if sleepStatus then
-        myAlert("System never sleep")
-    else
-        myAlert("System will sleep when idle")
-    end
+  local sleepStatus = hs.caffeinate.toggle("displayIdle")
+  if sleepStatus then
+    myAlert("System never sleep")
+  else
+    myAlert("System will sleep when idle")
+  end
 
-    caffeinateSetIcon(sleepStatus)
+  caffeinateSetIcon(sleepStatus)
 end
 
 hs.hotkey.bind(hyper, "]", toggleCaffeinate)
