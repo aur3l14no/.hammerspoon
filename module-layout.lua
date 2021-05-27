@@ -28,6 +28,8 @@ presetLayouts = {
   }},
 }
 
+-- Layout switching
+
 savedLayouts = {}
 
 function saveCurrentLayout(dest)
@@ -37,7 +39,7 @@ function saveCurrentLayout(dest)
     local win = wins[i]
     local frame = win:frame()
     local screen = win:screen()
-    savedLayouts[dest][i] = {nil, win, screen, nil, frame, nil}
+    savedLayouts[dest][i] = {nil, win, screen, frame, nil, nil}
   end
   -- printTable(savedLayouts)
 end
