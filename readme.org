@@ -2,31 +2,38 @@
 
 ** Prerequesite
 
-- [[https://github.com/kfix/ddcctl][ddcctl]]: switch monitor input source
-- [[https://github.com/jakehilborn/displayplacer][displayplacer]]: switch main display
+- [[https://github.com/kfix/ddcctl][ddcctl]] (optional): switch monitor input source
 
 ** Usage
 
-1. Modify ~module-config.lua~ (ddcctl_path, displayplacer_path, etc.)
-2. Modify ~module-window.lua~ (shortcut, display_id, input_source_id, display_arrangement (see =ddcctl=, =displayplacer= readme))
-3. Modify ~module-layout.lua~
+1. Modify ~module-config.lua~
+2. Read and modify ~module-*.lua~
 
 ** Cheatsheet
 
 hyper = command + option + ctrl
 super = command + option + ctrl + shift
 
-| Shortcut               | Function                                                    |
-|------------------------+-------------------------------------------------------------|
-| hyper + h              | move current window to the left                             |
-| hyper + l              | move current window to the right                            |
-| hyper + u              | move current window to the center (small)                   |
-| hyper + y              | move current window to the center (large)                   |
-| hyper + \              | apply default app layout (see ~module-layout.lua~)          |
-|------------------------+-------------------------------------------------------------|
-| hyper + -              | change monitor input to DP                                  |
-| hyper + =              | change monitor input to HDMI 1                              |
-| super + -              | change monitor input to DP and throw windows to laptop      |
-| super + =              | change monitor input to HDMI 1 and throw windows to monitor |
-|------------------------+-------------------------------------------------------------|
-| hyper + [ijkopbnm7890] | launch app (see ~module-config.lua~)                        |
+| File                | Shortcut                | Function                                  |
+|---------------------+-------------------------+-------------------------------------------|
+| ~module-window.lua~ | hyper + h               | move current window to the left           |
+| ~module-layout.lua~ | hyper + l               | move current window to the right          |
+|                     | hyper + u               | move current window to the center (small) |
+|                     | hyper + u (press again) | move current window to the center (large) |
+|                     | hyper + /               | move current window to the corner         |
+|---------------------+-------------------------+-------------------------------------------|
+| ~module-screen.lua~ | hyper + ,               | send focused window to next monitor       |
+|                     | hyper + .               | send focused window to prev monitor       |
+|                     | hyper + tab             | focus next monitor                        |
+|                     | super + tab             | focus prev monitor                        |
+|---------------------+-------------------------+-------------------------------------------|
+| ~module-layout.lua~ | hyper + 12345           | switch layout (see ~module-layout.lua~)   |
+|---------------------+-------------------------+-------------------------------------------|
+| ~module-app.lua~    | hyper + ijkopbnm7890    | launch app (see ~module-config.lua~)      |
+| ~module-config.lua~ |                         |                                           |
+|---------------------+-------------------------+-------------------------------------------|
+|                     | hyper + ]               | turn on / off caffeinate                  |
+
+If you intend to use advanced features such as layout management, you probably
+have to understand the source code and make your modifications due to lack of
+clean config interfaces.
