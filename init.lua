@@ -7,6 +7,7 @@ require('module-app')
 require('module-config')
 require('module-window')
 require('module-screen')
+require('module-menubar')
 
 -- Inits
 hs.window.animationDuration = 0
