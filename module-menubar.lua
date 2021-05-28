@@ -6,7 +6,7 @@ function gatherIcons()
   local icons = {}
   local focusedScreen = hs.window.focusedWindow():screen()
   local gatheredBundleIDs = {}
-  for _, win in ipairs(hs.window.orderedWindows()) do
+  for _, win in ipairs(hs.window.filter.default:getWindows()) do
     if win:screen() == focusedScreen then
       local bundleID = win:application():bundleID()
       if not gatheredBundleIDs[bundleID] then
@@ -42,7 +42,7 @@ local timerUpdateMenubarIcon = hs.timer.delayed.new(2, updateMenubarIcon):start(
 hs.window.filter.default:subscribe(
   hs.window.filter.windowFocused,
   function()
-    timerUpdateMenubarIcon:start(2)
+    timerUpdateMenubarIcon:start()
 end)
 
 --- Test

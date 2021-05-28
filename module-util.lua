@@ -15,6 +15,17 @@ function myNotify(msg)
   alert:withdrawAfter(3):send()
 end
 
+function timeit(fn, times)
+  local t = os.clock()
+  if times == nil then
+    times = 1
+  end
+  for i = 1, times do
+    fn()
+  end
+  return (os.clock() - t) / times
+end
+
 function randomlyDisturb(base)
   local coef = 0.01
   base.w = base.w + (math.random() * 2 - 1) * coef

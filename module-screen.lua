@@ -52,7 +52,7 @@ function focusScreen(rel)
   elseif rel == -1 then
     screen = screen:previous()
   end
-  for _, win in ipairs(hs.window.orderedWindows()) do
+  for _, win in ipairs(hs.window.filter.default:getWindows()) do
     if win:screen() == screen then
       win:focus()
       break

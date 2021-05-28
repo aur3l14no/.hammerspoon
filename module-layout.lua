@@ -33,12 +33,12 @@ savedLayouts = {
 -- Layout switching
 
 function saveCurrentLayout(dest)
-  local wins = hs.window.orderedWindows()
+  local wins = hs.window.filter.default:getWindows()
   for _, win in ipairs(wins) do
     local frame = win:frame()
     table.insert(savedLayouts[dest][2], {nil, win, nil, nil, frame, nil, options={['absolute_x'] = true, ['absolute_y'] = true}})
   end
-  local wins = hs.window.invisibleWindows()
+  local wins = hs.window.filter.invisible:getWindows()
   for _, win in ipairs(wins) do
     local frame = win:frame()
     table.insert(savedLayouts[dest][3], {nil, win, nil, nil, frame, nil, options={['absolute_x'] = true, ['absolute_y'] = true}})
@@ -52,7 +52,7 @@ function freshApplyLayout(name, visibleLayout, invisibleLayout)
   -- Only launch app when using preset layout (when appBundleID ~= nil)
   -- Requires layout[1] to be appBundleID or layout[2] to be hs.window
 
-  local visibleWins = hs.window.visibleWindows()
+  local visibleWins = hs.window.filter.default:getWindows()
 
   -- Launch or focus (back to front)
   for i = 1, #visibleLayout do
