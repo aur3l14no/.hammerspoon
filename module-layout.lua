@@ -38,8 +38,7 @@ function saveCurrentLayout(dest)
   for i = 1, #wins do
     local win = wins[i]
     local frame = win:frame()
-    local screen = win:screen()
-    savedLayouts[dest][i] = {nil, win, screen, frame, nil, nil}
+    savedLayouts[dest][i] = {nil, win, nil, nil, frame, nil, options={['absolute_x'] = true, ['absolute_y'] = true}}
   end
   -- printTable(savedLayouts)
 end
