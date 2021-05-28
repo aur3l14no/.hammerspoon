@@ -12,10 +12,7 @@ function toggleApplication(appBundleID)
     if app:isFrontmost() then
       app:hide()
     else
-      -- app:mainWindow():focus()
-      for _, win in ipairs(app:allWindows()) do
-        win:focus()
-      end
+      app:activate()
     end
   end
 end
