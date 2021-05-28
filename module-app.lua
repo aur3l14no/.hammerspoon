@@ -4,16 +4,10 @@ require("module-util")
 function toggleApplication(appBundleID)
   local app = hs.application.get(appBundleID)
 
-  if app == nil then
-    hs.application.launchOrFocusByBundleID(appBundleID)
-    return
+  if app ~= nil and app:isFrontmost() then
+    app:hide()
   else
-    -- local bundleID = app:bundleID()
-    if app:isFrontmost() then
-      app:hide()
-    else
-      app:activate()
-    end
+    hs.application.launchOrFocusByBundleID(appBundleID)
   end
 end
 

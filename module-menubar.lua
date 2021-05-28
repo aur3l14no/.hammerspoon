@@ -37,10 +37,12 @@ function updateMenubarIcon()
   appMenubar:setIcon(image, false)
 end
 
+
+local timerUpdateMenubarIcon = hs.timer.delayed.new(2, updateMenubarIcon):start()
 hs.window.filter.default:subscribe(
   hs.window.filter.windowFocused,
   function()
-    hs.timer.delayed.new(2, updateMenubarIcon):start()
+    timerUpdateMenubarIcon:start(2)
 end)
 
 --- Test
