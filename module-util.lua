@@ -10,7 +10,7 @@ function changeSourceID(sourceID)
   end
 end
 
-function myAlert(msg)
+function myNotify(msg)
   alert = hs.notify.new({title="Hammerspoon", informativeText=msg})
   alert:withdrawAfter(3):send()
 end

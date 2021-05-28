@@ -20,4 +20,4 @@ spoon.ReloadConfiguration:start()
 
 hs.console.clearConsole()
 
-myAlert("Sir, I'm online!")
+myNotify("Sir, I'm online!")
