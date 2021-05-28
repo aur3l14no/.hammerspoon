@@ -100,7 +100,7 @@ for _, preset in ipairs(presetLayouts) do
       end
       freshApplyLayout(layout)
       currentLayout = key
-      -- myAlert(string.format("Layout: %s", name))
+      hs.alert.show(string.format("Layout %s: %s", key, name))
     end
   )
 end
@@ -112,6 +112,7 @@ for _, key in ipairs({"1", "2"}) do
     function()
       freshApplyLayout(savedLayouts[key])
       currentLayout = key
+      hs.alert.show(string.format("Layout %s", key))
       -- myAlert(string.format("Layout %s restored!", key))
     end
   )

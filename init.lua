@@ -10,6 +10,7 @@ require('module-screen')
 
 -- Inits
 hs.window.animationDuration = 0
+hs.alert.defaultStyle['atScreenEdge'] = 2
 
 -- Auto reload
 hs.loadSpoon("ReloadConfiguration")
