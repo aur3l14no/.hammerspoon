@@ -20,8 +20,8 @@ savedLayouts = {
              {'com.readdle.PDFExpert-Mac', nil, nil, presetLayout['left'], nil, nil},
              {'org.gnu.Emacs', nil, nil, presetLayout['right'], nil, nil},
   }},
-  ['4'] = {'Chrome + Shell + Finder', {
-             {'com.google.Chrome', nil, nil, presetLayout['left'], nil, nil},
+  ['4'] = {'Firefox + Shell + Finder', {
+             {'org.mozilla.firefox', nil, nil, presetLayout['left'], nil, nil},
              {'com.googlecode.iterm2', nil, nil, presetLayout['right-top'], nil, nil},
              {'com.apple.finder', nil, nil, presetLayout['right-bottom'], nil, nil},
   }},
