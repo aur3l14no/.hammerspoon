@@ -7,7 +7,7 @@ require('module-app')
 require('module-config')
 require('module-window')
 require('module-screen')
-require('module-menubar')
+-- require('module-menubar')
 
 -- Inits
 hs.window.animationDuration = 0
@@ -16,7 +16,7 @@ hs.window.filter.default:setFilters({
     ['Microsoft Teams'] = {['rejectTitles'] = 'Microsoft Teams Notification'},
     ['default'] = {
       ['visible'] = true,
-      ['fullscreen'] = false
+      -- ['fullscreen'] = false
     }
 })
 hs.window.filter.invisible = hs.window.filter.copy(hs.window.filter.default)
