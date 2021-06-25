@@ -11,5 +11,6 @@ key2App = {
   -- {'k', 'com.google.Chrome'},
   {'k', 'org.mozilla.firefox'},
   {'b', 'com.microsoft.VSCode'},
+  {'m', 'com.toketaware.ithoughtsx'},
 }
 
