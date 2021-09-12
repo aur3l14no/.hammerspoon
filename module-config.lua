@@ -8,9 +8,12 @@ key2App = {
   {'o', 'org.gnu.Emacs'},
   {'p', 'com.apple.finder'},
   {'i', 'com.googlecode.iterm2'},
-  -- {'k', 'com.google.Chrome'},
-  {'k', 'org.mozilla.firefox'},
+  {'k', 'com.google.Chrome'},
+  -- {'k', 'org.mozilla.firefox'},
   {'b', 'com.microsoft.VSCode'},
-  {'m', 'com.toketaware.ithoughtsx'},
+  -- {'m', 'com.toketaware.ithoughtsx'},
+  -- {'j', 'com.literatureandlatte.scapple'},
+  {'m', 'com.google.Chrome.app.Default-pebppomjfocnoigkeepgbmcifnnlndla'},
+  {'n', 'com.apple.Safari'},
 }
 
