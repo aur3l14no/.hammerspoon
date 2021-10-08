@@ -1,9 +1,5 @@
 * Hammerspoon Config
 
-** Prerequesite
-
-- [[https://github.com/kfix/ddcctl][ddcctl]] (optional): switch monitor input source
-
 ** Usage
 
 1. Modify ~module-config.lua~

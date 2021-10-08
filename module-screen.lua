@@ -1,10 +1,6 @@
 require('module-config')
 require('module-util')
 
--- Change the below according to your situation --
-
-ddcctl_path = '~/bin/ddcctl'
-
 -- Core functions
 
 function moveToRelScreen(win, rel, showNotify)
@@ -94,34 +90,3 @@ hs.hotkey.bind(
   function()
     moveToRelScreen(hs.window.focusedWindow(), 1, true)
 end)
-
-
--- -- Switch external monitor to PC
--- hs.hotkey.bind(
---     hyper, "-",
---     function()
---         os.execute(ddcctl_path .. ' -d 1 -i 15')  -- DP (PC)
--- end)
---
--- -- Switch external monitor to laptop
--- hs.hotkey.bind(
---     hyper, "=",
---     function()
---         os.execute(ddcctl_path .. ' -d 1 -i 17')  -- HDMI (Laptop)
--- end)
---
--- -- Move windows to laptop screen and switch external monitor to PC
--- hs.hotkey.bind(
---     super, "-",
---     function()
---         os.execute(ddcctl_path .. ' -d 1 -i 15')  -- switch external monitor to PC
---         -- moveAllWindowsTo("Color LCD", true)  -- make sure all windows are here
--- end)
---
--- -- Move windows to external monitor and switch external monitor to Laptop (HDMI)
--- hs.hotkey.bind(
---     super, "=",
---     function()
---         os.execute(ddcctl_path .. ' -d 1 -i 17')  -- HDMI (Laptop)
---         -- moveAllWindowsTo("U2790B", true)  -- make sure all windows are here
--- end)
