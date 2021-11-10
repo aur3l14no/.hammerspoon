@@ -4,6 +4,7 @@ super = {'ctrl', 'command', 'option', 'shift'}
 key2App = {
   {'0', 'com.tencent.xinWeChat'},
   {'8', 'ru.keepcoder.Telegram'},
+  -- {'7', 'com.electron.yesplaymusic'},
   {'7', 'com.netease.163music'},
   {'o', 'org.gnu.Emacs'},
   {'p', 'com.apple.finder'},
