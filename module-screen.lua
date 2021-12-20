@@ -50,7 +50,10 @@ function focusScreen(rel)
   local focusedWin = hs.window.focusedWindow()
   local screen = focusedWin:screen()
   local curPos = hs.mouse.getRelativePosition()
-  lastMousePosOnScreen[screen:getUUID()] = curPos
+  -- remember mouse position if focused screen == mouse screen
+  if screen == hs.mouse.getCurrentScreen() then
+    lastMousePosOnScreen[screen:getUUID()] = curPos
+  end
   if rel == 1 then
     screen = screen:next()
   elseif rel == -1 then
