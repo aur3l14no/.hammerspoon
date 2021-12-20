@@ -12,21 +12,21 @@ require('module-screen')
 -- Inits
 hs.window.animationDuration = 0
 hs.alert.defaultStyle['atScreenEdge'] = 2
-hs.window.filter.default:setFilters({
-    ['Microsoft Teams'] = {['rejectTitles'] = 'Microsoft Teams Notification'},
-    ['default'] = {
-      ['visible'] = true,
-      -- ['fullscreen'] = false
-    }
-})
-hs.window.filter.invisible = hs.window.filter.copy(hs.window.filter.default)
-hs.window.filter.invisible:setFilters({
-    ['default'] = {
-      ['visible'] = false,
-      ['fullscreen'] = false
-    }
-})
 
+-- hs.window.filter.default:setFilters({
+--     ['Microsoft Teams'] = {['rejectTitles'] = 'Microsoft Teams Notification'},
+--     ['default'] = {
+--       ['visible'] = true,
+--       -- ['fullscreen'] = false
+--     }
+-- })
+-- hs.window.filter.invisible = hs.window.filter.copy(hs.window.filter.default)
+-- hs.window.filter.invisible:setFilters({
+--     ['default'] = {
+--       ['visible'] = false,
+--       ['fullscreen'] = false
+--     }
+-- })
 
 -- Auto reload
 hs.loadSpoon("ReloadConfiguration")

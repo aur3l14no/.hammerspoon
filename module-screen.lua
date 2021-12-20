@@ -40,28 +40,38 @@ function moveAllWindowsTo(screenName, showNotify)
   end
 end
 
-screenFocusMemory = {}
+-- screen.uuid -> pos
+lastMousePosOnScreen = {}
+
+-- Switch to last focused window
+-- Since we can't use window watcher for now (hs.window.filter is very slow),
+-- we always focus the top window
 function focusScreen(rel)
   local focusedWin = hs.window.focusedWindow()
   local screen = focusedWin:screen()
-  local pos = hs.mouse.getRelativePosition()
-  screenFocusMemory[screen:getUUID()] = {focusedWin, pos}
+  local curPos = hs.mouse.getRelativePosition()
+  lastMousePosOnScreen[screen:getUUID()] = curPos
   if rel == 1 then
     screen = screen:next()
   elseif rel == -1 then
     screen = screen:previous()
   end
-  local pack = screenFocusMemory[screen:getUUID()]
-  if pack and pack[1]:isVisible() then
-    pack[1]:focus()
-    hs.mouse.setRelativePosition(pack[2], screen)
-  else
-    for _, win in ipairs(hs.window.filter.default:getWindows()) do
-      if win:screen() == screen then
-        win:focus()
-        break
-      end
+  for _, win in ipairs(hs.window.orderedWindows()) do
+    if win:screen() == screen then
+      win:focus()
+      break
     end
+  end
+  local prevPos = lastMousePosOnScreen[screen:getUUID()]
+  if prevPos then
+    hs.mouse.setRelativePosition(prevPos, screen)
+  else
+    local center = screen:fullFrame().center
+    local frame = screen:fullFrame()
+    local rel = {}
+    rel["x"] = center["x"] - frame["x"]
+    rel["y"] = center["y"] - frame["y"]
+    hs.mouse.setRelativePosition(rel, screen)
   end
 end
 
