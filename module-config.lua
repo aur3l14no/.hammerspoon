@@ -5,17 +5,21 @@ key2App = {
   {'0', 'com.tencent.xinWeChat'},
   {'9', 'com.tencent.qq'},
   {'8', 'ru.keepcoder.Telegram'},
-  {'7', 'com.netease.163music'},
+  -- {'7', 'com.netease.163music'},
+  {'7', 'com.electron.yesplaymusic'},
   {'e', 'org.gnu.Emacs'},
   {'o', 'com.electron.logseq'},
-  {'p', 'com.apple.finder'},
+  {'f', 'com.apple.finder'},
+  {'z', 'org.zotero.zotero'},
+  {'p', 'com.readdle.PDFExpert-Mac'},
   {'i', 'com.googlecode.iterm2'},
-  {'k', 'com.google.Chrome'},
-  {'j', 'com.microsoft.edgemac'},
+  {'j', 'com.google.Chrome'},
+  {'k', 'com.microsoft.edgemac'},
   {'\'', 'com.TickTick.task.mac'},
   {'b', 'com.microsoft.VSCode'},
   -- {'m', 'com.toketaware.ithoughtsx'},
   {'m', 'com.google.Chrome.app.Default-pebppomjfocnoigkeepgbmcifnnlndla'},  -- diagrams.net
-  {'n', 'com.google.Chrome.app.kmcnjdcipmgchfndpapkoecbidofdpbc'},  -- excalidraw
+  {'n', 'com.microsoft.edgemac.app.kmcnjdcipmgchfndpapkoecbidofdpbc'},  -- excalidraw
+  -- {'n', 'com.google.Chrome.app.kmcnjdcipmgchfndpapkoecbidofdpbc'},  -- excalidraw
 }
 
