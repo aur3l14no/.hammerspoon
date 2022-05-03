@@ -3,10 +3,11 @@ super = {'ctrl', 'command', 'option', 'shift'}
 
 key2App = {
   {'0', 'com.tencent.xinWeChat'},
-  {'9', 'com.tencent.qq'},
+  -- {'9', 'com.tencent.qq'},
   {'8', 'ru.keepcoder.Telegram'},
-  -- {'7', 'com.netease.163music'},
-  {'7', 'com.electron.yesplaymusic'},
+  {'7', 'com.netease.163music'},
+  -- {'7', 'com.electron.yesplaymusic'},
+  {'6', 'com.microsoft.edgemac.app.menkmjoneggpjmdkhbjbjeejomlenlnf'},
   {'e', 'org.gnu.Emacs'},
   {'o', 'com.electron.logseq'},
   {'f', 'com.apple.finder'},
