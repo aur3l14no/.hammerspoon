@@ -23,7 +23,8 @@ key2App = {
   {'b', 'com.microsoft.VSCode'},
   -- {'m', 'com.toketaware.ithoughtsx'},
   {'m', 'com.google.Chrome.app.Default-pebppomjfocnoigkeepgbmcifnnlndla'},  -- diagrams.net
-  {'n', 'com.microsoft.edgemac.app.kmcnjdcipmgchfndpapkoecbidofdpbc'},  -- excalidraw
+  {'n', 'com.google.Chrome.app.ponnimpneaklfhmikmlojhgdfaghipim'},
+  -- {'n', 'com.microsoft.edgemac.app.kmcnjdcipmgchfndpapkoecbidofdpbc'},  -- excalidraw
   -- {'n', 'com.google.Chrome.app.kmcnjdcipmgchfndpapkoecbidofdpbc'},  -- excalidraw
 }
 
