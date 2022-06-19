@@ -28,7 +28,7 @@ super = command + option + ctrl + shift
 | ~module-app.lua~    | hyper + ijkopbnm7890    | launch app (see ~module-config.lua~)      |
 | ~module-config.lua~ |                         |                                           |
 |---------------------+-------------------------+-------------------------------------------|
-|                     | hyper + ]               | turn on / off caffeinate                  |
+|                     | hyper + =               | turn on / off caffeinate                  |
 
 If you intend to use advanced features such as layout management, you probably
 have to understand the source code and make your modifications due to lack of

@@ -49,6 +49,6 @@ local function toggleCaffeinate()
   caffeinateSetIcon(sleepStatus)
 end
 
-hs.hotkey.bind(hyper, "]", toggleCaffeinate)
+hs.hotkey.bind(hyper, "=", toggleCaffeinate)
 caffeinateTrayIcon:setClickCallback(toggleCaffeinate)
 caffeinateSetIcon(sleepStatus)
