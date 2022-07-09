@@ -18,7 +18,6 @@ super = command + option + ctrl + shift
 |                         | hyper + u (try again!) | move current window to the center (small / large)       |
 |                         | hyper + /              | move current window to the corner                       |
 |-------------------------+------------------------+---------------------------------------------------------|
-|                         |                        |                                                         |
 | ~module-screen.lua~     | hyper + ,              | send focused window to next monitor                     |
 |                         | hyper + .              | send focused window to prev monitor                     |
 |                         | hyper + tab            | focus next monitor                                      |
