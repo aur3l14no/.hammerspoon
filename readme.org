@@ -5,31 +5,28 @@
 1. Modify ~module-config.lua~
 2. Read and modify ~module-*.lua~
 
-** Cheatsheet
+** Keybindings Cheatsheet
 
 hyper = command + option + ctrl
 super = command + option + ctrl + shift
 
-| File                | Shortcut                | Function                                  |
-|---------------------+-------------------------+-------------------------------------------|
-| ~module-window.lua~ | hyper + h               | move current window to the left           |
-| ~module-layout.lua~ | hyper + l               | move current window to the right          |
-|                     | hyper + u               | move current window to the center (small) |
-|                     | hyper + u (press again) | move current window to the center (large) |
-|                     | hyper + /               | move current window to the corner         |
-|---------------------+-------------------------+-------------------------------------------|
-| ~module-screen.lua~ | hyper + ,               | send focused window to next monitor       |
-|                     | hyper + .               | send focused window to prev monitor       |
-|                     | hyper + tab             | focus next monitor                        |
-|                     | super + tab             | focus prev monitor                        |
-|---------------------+-------------------------+-------------------------------------------|
-| ~module-layout.lua~ | hyper + 12345           | switch layout (see ~module-layout.lua~)   |
-|---------------------+-------------------------+-------------------------------------------|
-| ~module-app.lua~    | hyper + ijkopbnm7890    | launch app (see ~module-config.lua~)      |
-| ~module-config.lua~ |                         |                                           |
-|---------------------+-------------------------+-------------------------------------------|
-|                     | hyper + =               | turn on / off caffeinate                  |
+|-------------------------+------------------------+---------------------------------------------------------|
+| Related Files           | Shortcut               | Function                                                |
+|-------------------------+------------------------+---------------------------------------------------------|
+| ~module-window.lua~     | hyper + h (try again!) | move current window to the left (whole / top / bottom)  |
+| ~module-layout.lua~     | hyper + l (try again!) | move current window to the right (whole / top / bottom) |
+|                         | hyper + u (try again!) | move current window to the center (small / large)       |
+|                         | hyper + /              | move current window to the corner                       |
+|-------------------------+------------------------+---------------------------------------------------------|
+|                         |                        |                                                         |
+| ~module-screen.lua~     | hyper + ,              | send focused window to next monitor                     |
+|                         | hyper + .              | send focused window to prev monitor                     |
+|                         | hyper + tab            | focus next monitor                                      |
+|                         | super + tab            | focus prev monitor                                      |
+|-------------------------+------------------------+---------------------------------------------------------|
+| ~module-app.lua~        | hyper + {ijkopbnm7890} | launch app (see ~module-config.lua~)                    |
+| ~module-config.lua~     |                        |                                                         |
+|-------------------------+------------------------+---------------------------------------------------------|
+| ~module-caffeinate.lua~ | hyper + =              | turn on / off caffeinate                                |
+|-------------------------+------------------------+---------------------------------------------------------|
 
-If you intend to use advanced features such as layout management, you probably
-have to understand the source code and make your modifications due to lack of
-clean config interfaces.
