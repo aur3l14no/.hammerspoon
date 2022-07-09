@@ -1,12 +1,13 @@
 hs.loadSpoon("SpoonInstall")
-
 Install=spoon.SpoonInstall
 
+require('hs.ipc')
 require('module-caffeinate')
 require('module-app')
 require('module-config')
 require('module-window')
 require('module-screen')
+require('module-autohide')
 -- require('module-menubar')
 
 -- Inits
