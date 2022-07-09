@@ -51,4 +51,4 @@ end
 
 hs.hotkey.bind(hyper, "=", toggleCaffeinate)
 caffeinateTrayIcon:setClickCallback(toggleCaffeinate)
-caffeinateSetIcon(sleepStatus)
+caffeinateSetIcon(false)

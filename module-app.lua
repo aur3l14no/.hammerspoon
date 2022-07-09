@@ -1,7 +1,7 @@
 require("module-config")
 require("module-util")
 
-function toggleApplication(appBundleID)
+local function toggleApplication(appBundleID)
   local app = hs.application.get(appBundleID)
 
   if app ~= nil and app:isFrontmost() then

@@ -3,7 +3,7 @@ require('module-util')
 
 -- Core functions
 
-function moveToRelScreen(win, rel, showNotify)
+local function moveToRelScreen(win, rel, showNotify)
   local toScreen = win:screen()
   if rel == 1 then
     toScreen = toScreen:next()
@@ -28,25 +28,25 @@ function moveToRelScreen(win, rel, showNotify)
   end
 end
 
-function moveAllWindowsTo(screenName, showNotify)
-  local wins = hs.window.allWindows()
-  local screen = hs.screen.findByName(screenName)
+-- local function moveAllWindowsTo(screenName, showNotify)
+--   local wins = hs.window.allWindows()
+--   local screen = hs.screen.findByName(screenName)
 
-  if screen then
-    for i = 1, #wins do
-      local win = wins[i]
-      win:moveToScreen(screen)
-    end
-  end
-end
+--   if screen then
+--     for i = 1, #wins do
+--       local win = wins[i]
+--       win:moveToScreen(screen)
+--     end
+--   end
+-- end
 
 -- screen.uuid -> pos
-lastMousePosOnScreen = {}
+local lastMousePosOnScreen = {}
 
 -- Switch to last focused window
 -- Since we can't use window watcher for now (hs.window.filter is very slow),
 -- we always focus the top window
-function focusScreen(rel)
+local function focusScreen(rel)
   local focusedWin = hs.window.focusedWindow()
   local screen = focusedWin:screen()
   local curPos = hs.mouse.getRelativePosition()
