@@ -3,7 +3,7 @@ function Print(x)
   print(hs.inspect(x))
 end
 
-function myNotify(msg)
+function Notify(msg)
   alert = hs.notify.new({ title = "Hammerspoon", informativeText = msg })
   alert:withdrawAfter(3):send()
 end
@@ -18,6 +18,7 @@ function timeit(fn, times)
   end
   return (os.clock() - t) / times
 end
+
 function map(f, t)
   local o = {}
   for i = 1, #t do
@@ -25,6 +26,7 @@ function map(f, t)
   end
   return o
 end
+
 function contains(table, val)
   for i = 1, #table do
     if table[i] == val then

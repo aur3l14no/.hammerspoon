@@ -32,7 +32,8 @@ local lastActive = {}
 
 local function handler(name, type, app)
   if type == hs.application.watcher.activated or
-      type == hs.application.watcher.deactivated then
+      type == hs.application.watcher.deactivated or
+      type == hs.application.watcher.hidden then
     -- only consider one `affectedSpace`
     if app:mainWindow() then
       for _, spaceId in ipairs(hs.spaces.windowSpaces(app:mainWindow())) do
@@ -43,7 +44,13 @@ local function handler(name, type, app)
     if debug then
       print(name, type)
     end
-    lastActive[name] = os.time()
+    if type == hs.application.watcher.hidden then
+      -- hidden apps are no longer our concern
+      lastActive[name] = nil
+    else
+      -- otherwise, log the time
+      lastActive[name] = os.time()
+    end
   end
 end
 

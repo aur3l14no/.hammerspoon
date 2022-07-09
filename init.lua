@@ -1,5 +1,5 @@
 hs.loadSpoon("SpoonInstall")
-Install=spoon.SpoonInstall
+Install = spoon.SpoonInstall
 
 require('hs.ipc')
 require('module-caffeinate')
@@ -13,6 +13,7 @@ require('module-autohide')
 -- Inits
 hs.window.animationDuration = 0
 hs.alert.defaultStyle['atScreenEdge'] = 2
+hs.application.enableSpotlightForNameSearches(false)
 
 -- hs.window.filter.default:setFilters({
 --     ['Microsoft Teams'] = {['rejectTitles'] = 'Microsoft Teams Notification'},
@@ -38,4 +39,4 @@ spoon.ReloadConfiguration:start()
 
 hs.console.clearConsole()
 
-myNotify("Sir, I'm online!")
+Notify("Sir, I'm online!")
