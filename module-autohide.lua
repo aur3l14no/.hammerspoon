@@ -14,6 +14,7 @@ local debug = false
 local whiteList = {
   "Google Chrome",
   "Hammerspoon", -- useful when developing
+  "TencentMeeting",
 }
 
 -- when not empty, only these apps are auto hidden
@@ -35,8 +36,9 @@ local function handler(name, type, app)
       type == hs.application.watcher.deactivated or
       type == hs.application.watcher.hidden then
     -- only consider one `affectedSpace`
-    if app:mainWindow() then
-      for _, spaceId in ipairs(hs.spaces.windowSpaces(app:mainWindow())) do
+    local win = app:mainWindow()
+    if win then
+      for _, spaceId in ipairs(hs.spaces.windowSpaces(win)) do
         if spaceId ~= affectedSpace then return
         end
       end
