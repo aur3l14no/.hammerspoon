@@ -15,7 +15,7 @@ key2App = {
   -- {'k', 'com.microsoft.edgemac'},
   { 'k', 'com.google.Chrome' },
   { 'b', 'com.microsoft.VSCode' },
-  { 'o', 'org.gnu.Emacs' },
+  -- { 'o', 'org.gnu.Emacs' },
   { 'p', 'com.electron.logseq' },
   { '[', 'com.apple.Preview' },
   { ']', 'org.zotero.zotero' },
