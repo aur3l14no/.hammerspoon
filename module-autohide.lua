@@ -15,6 +15,7 @@ local whiteList = {
   "Google Chrome",
   "Hammerspoon", -- useful when developing
   "TencentMeeting",
+  "Preview",
 }
 
 -- when not empty, only these apps are auto hidden
