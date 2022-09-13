@@ -41,9 +41,9 @@ end
 local function toggleCaffeinate()
   local sleepStatus = hs.caffeinate.toggle("displayIdle")
   if sleepStatus then
-    myNotify("System never sleep")
+    Notify("System never sleep")
   else
-    myNotify("System will sleep when idle")
+    Notify("System will sleep when idle")
   end
 
   caffeinateSetIcon(sleepStatus)
