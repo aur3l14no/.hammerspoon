@@ -100,7 +100,7 @@ local function doHide()
   end
 end
 
-autohide_watcher = hs.application.watcher.new(handler)
-autohide_watcher:start()
+autohideWatcher = hs.application.watcher.new(handler)
+autohideWatcher:start()
 
-autohide_timer = hs.timer.doEvery(doEvery, doHide)
+autohideTimer = hs.timer.doEvery(doEvery, doHide)
