@@ -33,6 +33,8 @@ local doEvery = 10
 local lastActive = {}
 
 local function handler(name, type, app)
+  -- weirdly, name can be nil and we need to explicitly ignore those cases
+  if name == nil then return end
   if type == hs.application.watcher.activated or
       type == hs.application.watcher.deactivated or
       type == hs.application.watcher.hidden then

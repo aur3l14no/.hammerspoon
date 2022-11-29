@@ -1,7 +1,7 @@
 --- Software KVM.
 --- Emitting signal to switch external monitor's input source when specified USB device is connected.
 
-local debug = true
+local debug = false
 
 local triggerProductID = 21033
 
