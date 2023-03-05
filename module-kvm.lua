@@ -14,6 +14,7 @@ local function handler(event)
   if event['eventType'] == 'added' and event['productID'] == triggerProductID then
     if hs.execute(M1DDC_PATH .. ' get input') == '15\n' then
       hs.execute(M1DDC_PATH .. ' set input 17')
+      hs.caffeinate.declareUserActivity()
     end
   elseif event['eventType'] == 'removed' and event['productID'] == triggerProductID then
     if hs.execute(M1DDC_PATH .. ' get input') == '17\n' then

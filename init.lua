@@ -7,7 +7,7 @@ require('module-app')
 require('module-config')
 require('module-window')
 require('module-screen')
-require('module-autohide')
+-- require('module-autohide')
 require('module-kvm')
 -- require('module-menubar')
 
