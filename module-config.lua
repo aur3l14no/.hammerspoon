@@ -11,8 +11,8 @@ key2App = {
   { 'f', 'com.apple.finder' },
   -- {'p', 'com.readdle.PDFExpert-Mac'},
   { 'i', 'com.googlecode.iterm2' },
-  { 'j', 'com.apple.Safari' },
-  -- {'k', 'com.microsoft.edgemac'},
+  -- { 'j', 'com.apple.Safari' },
+  { 'j', 'com.microsoft.edgemac' },
   { 'k', 'com.google.Chrome' },
   { 'b', 'com.microsoft.VSCode' },
   -- { 'o', 'md.obsidian' },
@@ -20,6 +20,7 @@ key2App = {
   { 'o', 'com.electron.logseq' },
   { '[', 'com.apple.Preview' },
   { ']', 'org.zotero.zotero' },
-  { 'n', 'com.google.Chrome.app.ponnimpneaklfhmikmlojhgdfaghipim' },
+  { 'n', 'notion.id' },
+  -- { 'n', 'com.google.Chrome.app.ponnimpneaklfhmikmlojhgdfaghipim' },
   -- {'n', 'com.google.Chrome.app.kmcnjdcipmgchfndpapkoecbidofdpbc'},  -- excalidraw
 }
